@@ -46,6 +46,11 @@ request.onload = function () {
     }
   }
   
+  let index= 0;
+  function getId(){
+    return index++;
+  }
+
   function newFilter(filter) {
     filtersContainer.style.display = "flex";
     let newInnerContainer = document.createElement("div");
@@ -60,6 +65,7 @@ request.onload = function () {
     newCross.classList.add("cross");
     newFilter.textContent = filter;
     newInnerContainer.style.display = "flex";
+    newInnerContainer.id = `filter${getId()}`;
     clear.textContent = 'Clear';
   
     newCross.addEventListener("click", (e) => {
@@ -68,12 +74,13 @@ request.onload = function () {
       eventRemove(filter);
     });
   }
-  
   clear.addEventListener('click', (e)=>{
       filtros = [];
       filtersContainer.style.display = "none";
       showAll();
+      deleteAllFilters();
   });
+  
   
   function newCardBox(empresas) {
     let newCardBox = document.createElement("div");
@@ -160,7 +167,7 @@ request.onload = function () {
       eventAdd(languages, "Ruby");
     });
   
-    //Tools array
+    //Tools array && NEW/FEATURED
   
     empresas.tools.forEach((element) => {
       let tools = document.createElement("p");
@@ -204,8 +211,8 @@ request.onload = function () {
   // Filter Logic with viewport adapt
 
   function searchInAll(){
-    for (let i = 0; i < cardboxs.length; i++) {
-      searchFilter(i);
+    for (let x = 0; x < cardboxs.length; x++) {
+      searchFilter(x);
     }
   }
 
@@ -228,5 +235,12 @@ request.onload = function () {
       }
     }
   }
-};
 
+
+  function deleteAllFilters(){
+    const filtersDelete = document.querySelectorAll('.filters-inner-container')
+    for (let i = 0; i < filtersDelete.length; i++) {
+      div1.removeChild(filtersDelete[i])
+    }
+  }
+};
