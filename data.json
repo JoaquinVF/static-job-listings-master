@@ -148,20 +148,5 @@
     "location": "Worldwide",
     "languages": ["JavaScript"],
     "tools": ["React", "Sass"]
-  },
-  {
-    "id": 11,
-    "company": "Club Atlético Boca Juniors",
-    "logo": "./images/boca.svg",
-    "new": false,
-    "featured": true,
-    "position": "El mas grande, papá",
-    "role": "Kease",
-    "level": "Master",
-    "postedAt": "116y ago",
-    "contract": "Toda la vida",
-    "location": "En todos lados",
-    "languages": [],
-    "tools": []
   }
 ]
